@@ -24,12 +24,12 @@ export class Client {
         this.port = port;
     }
 
-    public async request(key: string, timeout?: number) {
-        const request = Message.pack(Operation.REQUEST, key);
+    public async request(key: string, payload?: Buffer, timeout?: number) {
+        const request = Message.pack(Operation.REQUEST, key, payload);
         this.send(request);
 
         // We either get VALUE or NOVALUE from the server
-        const { operation, payload } =
+        const { operation, payload: responsePayload } =
             await this.waitForResponse(key, [Operation.VALUE, Operation.NOVALUE], timeout);
 
         // If the response is NOVALUE, then the key is invalid
@@ -37,12 +37,12 @@ export class Client {
             throw new Error("Key invalid");
         }
 
-        // Return payload
-        return payload;
+        // Return response payload
+        return responsePayload;
     }
 
-    public async delete(key: string, timeout?: number) {
-        const request = Message.pack(Operation.DELETE, key);
+    public async delete(key: string, payload?: Buffer, timeout?: number) {
+        const request = Message.pack(Operation.DELETE, key, payload);
         this.send(request);
         await this.waitForResponse(key, Operation.DELETED, timeout);
     }

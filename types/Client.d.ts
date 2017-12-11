@@ -5,8 +5,8 @@ export declare class Client {
     readonly port: number;
     private responseCallbackMap;
     constructor(address?: string, port?: number);
-    request(key: string, timeout?: number): Promise<Buffer>;
-    delete(key: string, timeout?: number): Promise<void>;
+    request(key: string, payload?: Buffer, timeout?: number): Promise<Buffer>;
+    delete(key: string, payload?: Buffer, timeout?: number): Promise<void>;
     private waitForResponse(key, responseCode, timeout?);
     private processResponse(response);
     private getResponseCallback(key, responseCode);

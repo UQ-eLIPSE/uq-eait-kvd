@@ -50,34 +50,34 @@ var Client = /** @class */ (function () {
         this.address = address;
         this.port = port;
     }
-    Client.prototype.request = function (key, timeout) {
+    Client.prototype.request = function (key, payload, timeout) {
         return __awaiter(this, void 0, void 0, function () {
-            var request, _a, operation, payload;
+            var request, _a, operation, responsePayload;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        request = Message.pack(Operation_1.Operation.REQUEST, key);
+                        request = Message.pack(Operation_1.Operation.REQUEST, key, payload);
                         this.send(request);
                         return [4 /*yield*/, this.waitForResponse(key, [Operation_1.Operation.VALUE, Operation_1.Operation.NOVALUE], timeout)];
                     case 1:
-                        _a = _b.sent(), operation = _a.operation, payload = _a.payload;
+                        _a = _b.sent(), operation = _a.operation, responsePayload = _a.payload;
                         // If the response is NOVALUE, then the key is invalid
                         if (operation === Operation_1.Operation.NOVALUE) {
                             throw new Error("Key invalid");
                         }
-                        // Return payload
-                        return [2 /*return*/, payload];
+                        // Return response payload
+                        return [2 /*return*/, responsePayload];
                 }
             });
         });
     };
-    Client.prototype.delete = function (key, timeout) {
+    Client.prototype.delete = function (key, payload, timeout) {
         return __awaiter(this, void 0, void 0, function () {
             var request;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        request = Message.pack(Operation_1.Operation.DELETE, key);
+                        request = Message.pack(Operation_1.Operation.DELETE, key, payload);
                         this.send(request);
                         return [4 /*yield*/, this.waitForResponse(key, Operation_1.Operation.DELETED, timeout)];
                     case 1:
