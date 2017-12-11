@@ -1,0 +1,20 @@
+{
+  "name": "uq-eait-kvd",
+  "version": "0.0.1",
+  "description": "Client for communicating with UQ EAIT's KVD system",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=6.9.0"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "8.0.57",
+    "typescript": "2.6.2"
+  }
+}
