@@ -1,5 +1,5 @@
 {
-  "name": "uq-eait-kvd",
+  "name": "@uq-elipse/uq-eait-kvd",
   "version": "0.0.2",
   "description": "Client for communicating with UQ EAIT's KVD system",
   "main": "./dist/index.js",
