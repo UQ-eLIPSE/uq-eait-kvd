@@ -5,7 +5,7 @@ Client for communicating with UQ EAIT's KVD system
 ## Installation
 
 ```bash
-npm install UQ-eLIPSE/uq-eait-kvd
+npm i @uq-elipse/uq-eait-kvd
 ```
 
 ## Usage
