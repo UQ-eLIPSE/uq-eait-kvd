@@ -14,10 +14,10 @@ npm i @uq-elipse/uq-eait-kvd
 /// Importing
 
 // ES Modules style
-import { KVD } from "uq-eait-kvd";
+import { KVD } from "@uq-elipse/uq-eait-kvd";
 
 // CommonJS style
-const KVD = require("uq-eait-kvd").KVD;
+const KVD = require("@uq-elipse/uq-eait-kvd").KVD;
 
 
 /// In your code...
